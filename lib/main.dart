@@ -26,7 +26,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> name = ['hello', 'you', 'are', 'awesome'];
+  List<Names> nameList = [
+    Names(name: 'hafeed', age: 15, dob: DateTime(2021, 12, 23)),
+    Names(name: 'muhammed', age: 40, dob: DateTime(1980, 4, 12)),
+    Names(name: 'john', age: 23, dob: DateTime(2000, 4, 23)),
+    Names(name: 'elon Musk', age: 34, dob: DateTime(1984, 10, 30))
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,20 +39,29 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView.builder(
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(name[index]),
+            title: Text(nameList[index].name),
+            subtitle: Text(nameList[index].age.toString()),
             trailing: IconButton(
                 onPressed: () {
-                  name.removeAt(index);
+                  nameList.removeAt(index);
                   setState(() {});
                 },
                 icon: Icon(Icons.delete)),
           );
         },
-        itemCount: name.length,
+        itemCount: nameList.length,
       ),
     );
   }
 }
-// class Name {
 
-// }
+class Names {
+  String name;
+  int age;
+  DateTime dob;
+  Names({
+    required this.name,
+    required this.age,
+    required this.dob,
+  });
+}
