@@ -1,0 +1,9 @@
+{
+    "name": "hafeed",
+    "age": 10,
+    "profession": "developer",
+    "image": "sfdg",
+    "details": {
+        "place": "kerala"
+    }
+}
